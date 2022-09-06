@@ -13,7 +13,6 @@ def index(request):
     return render(request,'index.html')
 
 def form(request):
-    
     if request.method == 'POST':
         form = urlform(request.POST)
         if form.is_valid():
