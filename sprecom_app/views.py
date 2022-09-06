@@ -18,12 +18,12 @@ def form(request):
         if form.is_valid():
             playlist_url = form.cleaned_data['playlist_url']
             number_of_recs = form.cleaned_data['number_of_recs']
-            print(playlist_url)
+            #print(playlist_url)
 
             df = scripts.extract(playlist_url)
             #print(df)
             top40songs = final_model.recommend_from_playlist(song_df,complete_feature_df,df)
-            print('\n',top40songs[:number_of_recs])
+            #print('\n',top40songs[:number_of_recs])
             my_songs = []
             for i in range(number_of_recs):
                 #my_songs.append([str(top40songs.iloc[i,1]) + ' - '+ '"'+str(top40songs.iloc[i,4])+'"', "https://open.spotify.com/track/"+ str(top40songs.iloc[i,-6]).split("/")[-1]])
