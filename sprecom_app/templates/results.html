@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations</title>
+</head>
+<body>
+    <div class='results'>
+        <h2>Results :</h2>
+            {% for song in songs %}
+                <p class='song' style="font-size: 11pt"> <a  href={{song.1}} target="_blank"> {{song.0}} </a> </p>
+            {% endfor %}    
+    </div>
+</body>
+</html>
