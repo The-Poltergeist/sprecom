@@ -57,6 +57,9 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
+REST_FRAMEWORK = {'DEFAULT_PERMISSION_CLASSES': [
+    'rest_framework.permissions.AllowAny']}
+
 ROOT_URLCONF = 'sprecom_deployment.urls'
 
 TEMPLATES = [
@@ -132,7 +135,4 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ORIGIN_WHITELIST = [
-     'http://localhost:3000',
-     'http://localhost:8000'
-]
+CORS_ORIGIN_ALLOW_ALL = True
