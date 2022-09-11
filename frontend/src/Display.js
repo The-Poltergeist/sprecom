@@ -22,6 +22,7 @@ function Display() {
                 playlist_url: obj.link,
                 number_of_recs: obj.track
             });
+            console.log(res);
             setPlaylist(res.data.data);
             setLoading(false);
             //console.log(res);
@@ -94,9 +95,37 @@ function Display() {
             placeholder="number of tracks"
             value = {obj.track}/>
             {submitted && (!obj.track  || obj.track>40) ? <span className="form-field">enter a value (max: 40)</span>: null} 
-            <button onClick={submitHandler}>Recommend !</button>
+            <button onClick={submitHandler} className="btn-form">Recommend !</button>
         </div>
+        {/* {console.log('hello')}   */}
+        {submitted && valid && <div className="results-table">
+          <div>
+            <h1>Recommended for you</h1>
+          </div>  
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Link</th>
+              </tr>
+            </thead>
+            <tbody>
+            {
+              playlist.map((val,index)=>{
+                return (
+                  <tr key={index}>
+                    <td>{val[0]}</td>
+                    <td><a href= {`${val[1]}`} target="_blank">{val[1]}</a></td>
+                  </tr>
+                ) 
+              })
+            }
+            </tbody> 
+          </table>
+        </div>
+      }
     </div>
+    
     </>
   )
 }
