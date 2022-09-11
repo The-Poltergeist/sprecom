@@ -21,10 +21,11 @@ function Display() {
             const res = await axiosInstance.post("form", {
                 playlist_url: obj.link,
                 number_of_recs: obj.track
+                
             });
+            console.log(res);
             setPlaylist(res.data.data);
             setLoading(false);
-            //console.log(res);
 
         } catch (error) {
             setLoading(false);
