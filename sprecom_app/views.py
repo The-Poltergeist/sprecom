@@ -11,8 +11,8 @@ import pandas as pd
 from . import final_model
 import re
 
-song_df = pd.read_csv('C://Users//enoch//OneDrive//Desktop//Work//Spotify recommender//sprecom_deployment//sprecom_app//data/allsong_data.csv')
-complete_feature_df = pd.read_csv('C://Users//enoch//OneDrive//Desktop//Work//Spotify recommender//sprecom_deployment//sprecom_app//data//complete_feature.csv')
+song_df = pd.read_csv('C://Users//KIIT//Desktop//spotify recommendations//sprecom//sprecom_app//data//allsong_data.csv')
+complete_feature_df = pd.read_csv('C://Users//KIIT//Desktop//spotify recommendations//sprecom//sprecom_app//data///complete_feature.csv')
 
 # def index(request):
 #     return render(request,'index.html')
@@ -51,7 +51,7 @@ class UserViewSet(APIView):
         #print(playlist_url)
         try:
             df = scripts.extract(playlist_url)
-        #print(df)
+            #print(df)
             top40songs = final_model.recommend_from_playlist(song_df,complete_feature_df,df)
             #print('\n',top40songs[:number_of_recs])
             my_songs = []
