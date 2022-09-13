@@ -9,10 +9,12 @@ from . import scripts
 from . forms import urlform
 import pandas as pd
 from . import final_model
-import re
+from pathlib import Path
+import os
 
-song_df = pd.read_csv('C://Users//KIIT//Desktop//spotify recommendations//sprecom//sprecom_app//data//allsong_data.csv')
-complete_feature_df = pd.read_csv('C://Users//KIIT//Desktop//spotify recommendations//sprecom//sprecom_app//data///complete_feature.csv')
+#dirname = os.path.dirname(os.path.abspath("__file__"))
+song_df = pd.read_csv(os.path.join(os.path.dirname(__file__), "data\\allsong_data.csv"))
+complete_feature_df = pd.read_csv(os.path.join(os.path.dirname(__file__), "data\\complete_feature.csv"))
 
 # def index(request):
 #     return render(request,'index.html')
