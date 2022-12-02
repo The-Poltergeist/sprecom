@@ -9,10 +9,12 @@ from . import scripts
 from . forms import urlform
 import pandas as pd
 from . import final_model
-import re
+from pathlib import Path
+import os
 
-song_df = pd.read_csv('C://Users//enoch//OneDrive//Desktop//Work//Spotify recommender//sprecom_deployment//sprecom_app//data/allsong_data.csv')
-complete_feature_df = pd.read_csv('C://Users//enoch//OneDrive//Desktop//Work//Spotify recommender//sprecom_deployment//sprecom_app//data//complete_feature.csv')
+#dirname = os.path.dirname(os.path.abspath("__file__"))
+song_df = pd.read_csv(os.path.join(os.path.dirname(__file__), "data\\allsong_data.csv"))
+complete_feature_df = pd.read_csv(os.path.join(os.path.dirname(__file__), "data\\complete_feature.csv"))
 
 # def index(request):
 #     return render(request,'index.html')
@@ -51,12 +53,12 @@ class UserViewSet(APIView):
         #print(playlist_url)
         try:
             df = scripts.extract(playlist_url)
-        #print(df)
+            #print(df)
             top40songs = final_model.recommend_from_playlist(song_df,complete_feature_df,df)
             #print('\n',top40songs[:number_of_recs])
             my_songs = []
             for i in range(number_of_recs):
-                my_songs.append([str(top40songs.iloc[i,0]) + '-' +str(top40songs.iloc[i,2]) , "https://open.spotify.com/track/"+ str(top40songs.iloc[i,1])])
+                my_songs.append([str(top40songs.iloc[i,0]) + '-' +str(top40songs.iloc[i,2]) , "https://open.spotify.com/track/"+ str(top40songs.iloc[i,1])],top40songs.iloc[i,-1])
             return Response({'status': 'OK', 'data': my_songs}, status=status.HTTP_200_OK)
         except: 
             return Response({'status': 'KO', 'remark': 'Error encountered with the url. Please try again with a new url. Ensure that it is public.'}, status=status.HTTP_400_BAD_REQUEST)

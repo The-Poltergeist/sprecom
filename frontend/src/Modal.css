@@ -1,0 +1,32 @@
+.modal{
+    background: rgb(2,0,36);
+    background: linear-gradient(0deg, rgb(36, 72, 44) 0%, rgba(5,207,52,1) 100%);  
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: black;
+    height: 600px;
+    width: 800px;
+    padding: 20px;
+    box-shadow: 0 0 10px black;
+    z-index: 100;
+    font-size: 40px;
+    padding-top: 10px;
+}
+.btn-modal{
+    position: absolute;
+    top: 2%;
+    left: 95%;
+    text-decoration: none;
+    background: none;
+    /* border-radius: 10px; */
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+.btn-modal:hover{
+    transform: scale(1.1);
+}
