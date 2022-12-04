@@ -72,7 +72,7 @@ function Display() {
             
           </div>
         </div>
-          <div ref={ref} className="form-container">
+          <div ref={ref} style={{marginTop:'200px'}} className="form-container">
           <div className="form-dialog-box">
             {/* {submitted && valid && <div>success</div>} */}
             {/* {alert("success")} */}
@@ -106,6 +106,7 @@ function Display() {
                 <tr>
                   <th>Name</th>
                   <th>Link</th>
+                  <th>Similarity(in %)</th>
                 </tr>
               </thead>
               <tbody>
@@ -115,6 +116,7 @@ function Display() {
                     <tr key={index}>
                       <td>{val[0]}</td>
                       <td><a href= {`${val[1]}`} target="_blank" rel="noreferrer">{val[1]}</a></td>
+                      <td>{(val[2]*100).toPrecision(4)}</td>
                     </tr>
                   ) 
                 })
