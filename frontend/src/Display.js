@@ -63,7 +63,7 @@ function Display() {
         <div className='main'>
           <div style={{display: 'flex', alignItems: 'center'}}>
           <img src={SpotifyLogo} alt="SpotifyLogo" />
-          Spotify-PR
+          Spotify Recommender
           </div>
           <div className='about'>
             <button className='btn-about'onClick={()=>{setModal(true); console.log('clicked')}}>About</button>

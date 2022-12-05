@@ -21,7 +21,7 @@ function Modal({openModal, onClose}) {
         <div className="modal">
             <button className="btn-modal" onClick={onClose}>X</button>
             <br />
-            This the place where u explain what spotifyPR is,what tools did you use and how is it created.
+            This application recommends you a list of songs based on the plalist you provide and also gives you a similarity value to show how similar it is, to the kind of songs you provided.
         </div>
     </>
   )
